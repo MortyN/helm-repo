@@ -161,9 +161,9 @@ minecraftServer:
   jvmXXOpts: ""
   # DEPRECATED: use top-level rconServiceAnnotations instead
   serviceAnnotations: {}
-  serviceType: ClusterIP
+  serviceType: NodePort
   ## Set the port used if the serviceType is NodePort
-  nodePort:
+  nodePort: 33325
   # Set the external port of the service, usefull when using the LoadBalancer service type
   servicePort: 25565
   loadBalancerIP:
