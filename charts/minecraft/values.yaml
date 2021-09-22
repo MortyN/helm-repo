@@ -163,7 +163,7 @@ minecraftServer:
   serviceAnnotations: {}
   serviceType: NodePort
   ## Set the port used if the serviceType is NodePort
-  nodePort: 33325
+  nodePort: 30025
   # Set the external port of the service, usefull when using the LoadBalancer service type
   servicePort: 25565
   loadBalancerIP:
