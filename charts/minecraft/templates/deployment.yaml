@@ -1,6 +1,17 @@
+---
+apiVersion: autoscaling.k8s.io/v1beta2
+kind: VerticalPodAutoscaler
+metadata:
+  name: minecraft-vpa
+spec:
+  targetRef:
+    apiVersion: "apps/v1"
+    kind: Deployment
+    name: {{ template "minecraft.fullname" . }}
+---
 {{- if ne (printf "%s" .Values.minecraftServer.eula) "FALSE" }}
 apiVersion: apps/v1
-kind: VerticalPodAutoscaler
+kind: Deployment
 metadata:
   name: {{ template "minecraft.fullname" . }}
   {{- if .Values.deploymentAnnotations }}
@@ -50,16 +61,8 @@ spec:
       - name: {{ template "minecraft.fullname" . }}
         image: "{{ .Values.image }}:{{ .Values.imageTag }}"
         imagePullPolicy: Always
-      resourcePolicy:
-        containerPolicies:
-          - containerName: '*'
-            minAllowed:
-              cpu: 300m
-              memory: 512mi
-            maxAllowed:
-              cpu: 2000m
-              memory: {{ .Values.minecraftServer.memory | quote }}
-            controlledResources: ["cpu", memory]
+        resources:
+{{ toYaml .Values.resources | indent 10 }}
         {{- if .Values.startupProbe.enabled }}
         startupProbe:
           tcpSocket:
