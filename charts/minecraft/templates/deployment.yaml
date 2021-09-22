@@ -2,7 +2,7 @@
 apiVersion: autoscaling.k8s.io/v1beta2
 kind: VerticalPodAutoscaler
 metadata:
-  name: minecraft-vpa
+  name: minecraftserver-vpa
 spec:
   targetRef:
     apiVersion: "apps/v1"
