@@ -21,7 +21,7 @@ spec:
         resources:
           limits:
             memory: "3500Mi"
-            cpu: "3000m"
+            cpu: "2000m"
 
 ---
 apiVersion: v1
