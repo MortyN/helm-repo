@@ -207,6 +207,19 @@ entries:
   minecraftaandb:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2021-11-13T11:09:34.918552009Z"
+    description: Minecraft above and beyond server
+    digest: ee434005e9891405ad04ffd130196b76645fe71a441aa3afe8c3b9a621a0d316
+    icon: https://helm.sh/img/helm.svg
+    maintainers:
+    - email: morten.neteland@hotmail.com.com
+      name: Morten Neteland
+    name: minecraftaandb
+    urls:
+    - https://github.com/MortyN/helm-repo/releases/download/minecraftaandb-0.0.7/minecraftaandb-0.0.7.tgz
+    version: 0.0.7
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2021-11-13T11:07:07.520971763Z"
     description: Minecraft above and beyond server
     digest: 780da9d9015c4eda63896e993e4debfab07522de19a61d2ef930baddc836dad3
