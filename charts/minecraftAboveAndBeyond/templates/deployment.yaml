@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minecraftaandb
+  namespace: default
+  labels:
+    chart: "minecraftaandb"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      bb: minecraftaandb
+  template:
+    metadata:
+      labels:
+        bb: minecraftaandb
+    spec:
+      containers:
+      - name: minecraftaandb
+        image: "{{ .Values.imageRepository }}:{{ default "latest" .Values.imageTag }}"
+        resources:
+          limits:
+            memory: "3500Mi"
+            cpu: "3000m"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: minecraftaandb-svc
+  namespace: default
+spec:
+  type: LoadBalancer
+  selector:
+    bb: minecraftaandb
+  ports:
+  - port: 25565
+    targetPort: 25565

@@ -1,0 +1,23 @@
+replicacount: 1
+imageRepository: mortyn/aboveandbeyond
+imageTag: 1.0.0
+imagePullPolicy: Always
+service:
+  type: ClusterIP
+  port: 80
+ingress:
+  enabled: false
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  path: /
+  hosts:
+    - minecraftaandb-example.local
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+nodeSelector: {}
+affinity: {}
+priorityClassName: ""
+tolerations: []
