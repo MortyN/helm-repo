@@ -22,14 +22,14 @@ spec:
           limits:
             memory: "{{ .Values.Resources.memoryLimit }}"
             cpu: "{{ .Values.Resources.cpuLimit }}"
-      volumeMounts:
-        - name: {{ .Values.Persistence.VolumeName }}
-          mountPath: {{ .Values.Persistence.MountPath }}
-    volumes:
-    - name: {{ .Values.Persistence.VolumeName }}
-    {{- if .Values.Persistence.Enabled }}
-      persistentVolumeClaim:
-        claimName: {{ .Values.Persistence.ExistingClaim | default .Values.Persistence.VolumeName }}
-    {{- else }}
-        emptyDir: {}
-    {{- end }}
+        volumeMounts:
+          - name: {{ .Values.Persistence.VolumeName }}
+            mountPath: {{ .Values.Persistence.MountPath }}
+      volumes:
+      - name: {{ .Values.Persistence.VolumeName }}
+      {{- if .Values.Persistence.Enabled }}
+        persistentVolumeClaim:
+          claimName: {{ .Values.Persistence.ExistingClaim | default .Values.Persistence.VolumeName }}
+      {{- else }}
+          emptyDir: {}
+      {{- end }}
