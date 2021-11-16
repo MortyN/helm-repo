@@ -23,13 +23,13 @@ spec:
             memory: "{{ .Values.Resources.memoryLimit }}"
             cpu: "{{ .Values.Resources.cpuLimit }}"
         volumeMounts:
-          - name: {{ .Values.Persistence.VolumeName }}
-            mountPath: {{ .Values.Persistence.MountPath }}
+        - name: "minecraftdata"
+          mountPath: {{ .Values.Persistence.MountPath }}
       volumes:
-      - name: {{ .Values.Persistence.VolumeName }}
+      - name: "minecraftdata"
       {{- if .Values.Persistence.Enabled }}
         persistentVolumeClaim:
-          claimName: {{ .Values.Persistence.VolumeName }}
+          claimName: {{ .Values.Persistence.VolumeName }}-datadir
       {{- else }}
           emptyDir: {}
       {{- end }}
