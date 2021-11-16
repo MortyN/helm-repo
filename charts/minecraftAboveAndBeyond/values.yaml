@@ -2,9 +2,13 @@ replicacount: 1
 imageRepository: mortyn/aboveandbeyond
 imageTag: 1.0.0
 imagePullPolicy: Always
+deploymentname: minecraftaandb
+
 service:
-  type: ClusterIP
+  type: LoadBalancer
   port: 80
+  targetPort: 25565
+
 ingress:
   enabled: false
   annotations: {}
@@ -17,6 +21,29 @@ ingress:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
+
+Resources: 
+  cpuLimit: 2000m
+  memoryLimit: 3500Mi
+
+Persistence:
+  Enabled: true
+  MountPath: "/"
+  VolumeName: "minecraftdata"
+  # define volume claim. This is only considered if Enabled is set to true above
+  # If you have an existing volume claim, add it's name in ExistingClaim 
+  # A new PVC will be created if enabled is set to true and ExistingClaim is set to ""
+  ExistingClaim: "portal-minecraft"
+#  VolumeClaimTemplates:
+#    AccessModes: ReadWriteOnce
+#    Storage: 2Gi
+#    StorageClassName: standard
+#    Selector:
+#      Enabled: true
+#      MatchLabels: 
+#        app: minecraft
+#        appid: portal
+
 nodeSelector: {}
 affinity: {}
 priorityClassName: ""

@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: minecraftaandb
+  name: {{ .Values.deploymentname }}
   namespace: default
   labels:
     chart: "minecraftaandb"
@@ -9,30 +9,27 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      bb: minecraftaandb
+      bb: {{ .Values.deploymentname }}
   template:
     metadata:
       labels:
-        bb: minecraftaandb
+        bb: {{ .Values.deploymentname }}
     spec:
       containers:
-      - name: minecraftaandb
+      - name: {{ .Values.deploymentname }}
         image: "{{ .Values.imageRepository }}:{{ default "latest" .Values.imageTag }}"
         resources:
           limits:
-            memory: "3500Mi"
-            cpu: "2000m"
-
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: minecraftaandb-svc
-  namespace: default
-spec:
-  type: LoadBalancer
-  selector:
-    bb: minecraftaandb
-  ports:
-  - port: 80
-    targetPort: 25565
+            memory: "{{ .Values.Resources.memoryLimit }}"
+            cpu: "{{ .Values.Resources.cpuLimit }}"
+      volumeMounts:
+        - name: {{ .Values.Persistence.VolumeName }}
+          mountPath: {{ .Values.Persistence.MountPath }}
+    volumes:
+    - name: {{ .Values.Persistence.VolumeName }}
+    {{- if .Values.Persistence.Enabled }}
+      persistentVolumeClaim:
+        claimName: {{ .Values.Persistence.ExistingClaim | default .Values.Persistence.VolumeName }}
+    {{- else }}
+        emptyDir: {}
+    {{- end }}
