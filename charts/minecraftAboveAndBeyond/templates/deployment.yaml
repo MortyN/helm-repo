@@ -29,7 +29,7 @@ spec:
       - name: "minecraftdata"
       {{- if .Values.Persistence.Enabled }}
         persistentVolumeClaim:
-          claimName: {{ .Values.Persistence.VolumeName }}-datadir
+          claimName: {{ .Values.Persistence.VolumeName }}
       {{- else }}
           emptyDir: {}
       {{- end }}
