@@ -737,16 +737,16 @@ persistence:
   ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
   ##   GKE, AWS & OpenStack)
   ##
-  storageClass: ""
+  storageClass: jenkins-pv
   annotations: {}
   accessMode: "ReadWriteOnce"
   size: "8Gi"
   volumes:
-   - name: nothing
+   - name: jenkins-pv
      emptyDir: {}
   mounts:
-   - mountPath: /var/nothing
-     name: nothing
+   - mountPath: /var/jeknins-volume/
+     name: jenkins-pv
      readOnly: true
 
 networkPolicy:
