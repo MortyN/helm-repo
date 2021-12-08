@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: networkmon
-  namespace: default
+  namespace: networkmon
   labels:
     chart: "networkmon"
 spec:
