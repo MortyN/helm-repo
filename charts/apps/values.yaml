@@ -6,7 +6,7 @@ spec:
     server: https://kubernetes.default.svc
   source:
     repoURL: https://mortyn.github.io/helm-repo
-    targetRevision: "*"
+    targetRevision: "0.1.*"
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
