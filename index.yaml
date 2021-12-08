@@ -3,6 +3,16 @@ entries:
   applications:
   - apiVersion: v2
     appVersion: "1.0"
+    created: "2021-12-08T22:34:04.944271156Z"
+    description: Applications
+    digest: 4b5ce64cfba2a9e448173375f993f7c957c6d8c00417a7fdb5725842b09f9622
+    name: applications
+    type: application
+    urls:
+    - https://github.com/MortyN/helm-repo/releases/download/applications-0.1.7/applications-0.1.7.tgz
+    version: 0.1.7
+  - apiVersion: v2
+    appVersion: "1.0"
     created: "2021-12-08T22:27:58.122537719Z"
     description: Applications
     digest: d995b1aba5904dd11cb81528116e77b31894bdc4f19ba0abb2777fc1d149f46d
@@ -837,6 +847,19 @@ entries:
     - https://github.com/MortyN/helm-repo/releases/download/minecraftaandb-0.0.5/minecraftaandb-0.0.5.tgz
     version: 0.0.5
   networkmon:
+  - apiVersion: v2
+    appVersion: 1.5.0
+    created: "2021-12-08T22:34:05.153709635Z"
+    description: Prometheus network metrics, golang, grafana interface
+    digest: 1a1c34998b558630d000089f11c472c2bf53a478ba63da38f9cb9167664a517e
+    icon: https://helm.sh/img/helm.svg
+    maintainers:
+    - email: morten.neteland@hotmail.com.com
+      name: Morten Neteland
+    name: networkmon
+    urls:
+    - https://github.com/MortyN/helm-repo/releases/download/networkmon-0.1.6/networkmon-0.1.6.tgz
+    version: 0.1.6
   - apiVersion: v2
     appVersion: 1.5.0
     created: "2021-12-08T21:23:42.090396404Z"
