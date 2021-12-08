@@ -1,0 +1,9 @@
+apiVersion: v2
+description: Prometheus network metrics, golang, grafana interface
+name: networkmon
+version: 0.1.4
+appVersion: "1.5.0"
+maintainers:
+- name: Morten Neteland
+  email: morten.neteland@hotmail.com.com
+icon: https://helm.sh/img/helm.svg

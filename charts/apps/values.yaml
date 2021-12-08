@@ -1,0 +1,9 @@
+spec:
+  metadata:
+    name: networkMon
+    namespace: networkMon
+  destination:
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: https://mortyn.github.io/helm-repo
+    targetRevision: HEAD

@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: networkmon
+  namespace: default
+  labels:
+    chart: "networkmon"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      bb: networkmon
+  template:
+    metadata:
+      labels:
+        bb: networkmon
+    spec:
+      containers:
+      - name: networkmon
+        image: "{{ .Values.imageRepository }}:{{ default "latest" .Values.imageTag }}"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: networkmon-svc
+  namespace: default
+spec:
+  type: NodePort
+  selector:
+    bb: networkmon
+  ports:
+  - port: 2112
+    targetPort: 2112
+    nodePort: 30001
