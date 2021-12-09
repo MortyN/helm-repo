@@ -4,7 +4,7 @@ metadata:
   name: {{ .Values.metadata.name }}-deployment
   namespace: {{ .Values.metadata.namespace }}
   labels:
-    chart: {{ .Chart.name }}
+    chart: {{ .Values.metadata.name }}
     app: {{ .Values.metadata.name }}
 spec:
   replicas: 1
