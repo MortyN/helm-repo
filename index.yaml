@@ -173,6 +173,18 @@ entries:
     version: 0.1.0
   grafana:
   - apiVersion: v2
+    created: "2021-12-09T23:51:35.276972711Z"
+    description: Prometheus network metrics, golang, grafana interface
+    digest: 0cf351a05220e07b21833659e25ee865460a352c5dfd6ba7f728b891a712362f
+    icon: https://helm.sh/img/helm.svg
+    maintainers:
+    - email: morten.neteland@hotmail.com.com
+      name: Morten Neteland
+    name: grafana
+    urls:
+    - https://github.com/MortyN/helm-repo/releases/download/grafana-0.0.4/grafana-0.0.4.tgz
+    version: 0.0.4
+  - apiVersion: v2
     created: "2021-12-09T23:09:44.75167527Z"
     description: Prometheus network metrics, golang, grafana interface
     digest: 185262bc9fa27fa9a8db7655f53f3e620f8eb8ba94a3d5fbd66482e025dc2d5c
