@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: {{ .Values.spec.metadata.name }}
+  name: networkmon
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -14,3 +14,7 @@ spec:
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
     chart: networkmon
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
