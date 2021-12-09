@@ -3,6 +3,16 @@ entries:
   applications:
   - apiVersion: v2
     appVersion: "1.0"
+    created: "2021-12-09T23:48:39.650017596Z"
+    description: Applications
+    digest: 2e16b58c0b6a4ffd8724de5e7c8fea751801673bb069a26d1a3b67cd4d56d378
+    name: applications
+    type: application
+    urls:
+    - https://github.com/MortyN/helm-repo/releases/download/applications-0.1.18/applications-0.1.18.tgz
+    version: 0.1.18
+  - apiVersion: v2
+    appVersion: "1.0"
     created: "2021-12-09T23:28:36.014014798Z"
     description: Applications
     digest: 914eacf31030e2dea6c63c04ba599433e2c03523e274375da15ff3546d77216d
