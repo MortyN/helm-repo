@@ -3,6 +3,16 @@ entries:
   applications:
   - apiVersion: v2
     appVersion: "1.0"
+    created: "2021-12-09T23:09:44.641262349Z"
+    description: Applications
+    digest: 357f3a48c0b0eb896c43c69bb54ef1b3422a434490f099c107268da0b2850cea
+    name: applications
+    type: application
+    urls:
+    - https://github.com/MortyN/helm-repo/releases/download/applications-0.1.13/applications-0.1.13.tgz
+    version: 0.1.13
+  - apiVersion: v2
+    appVersion: "1.0"
     created: "2021-12-09T22:51:23.718933884Z"
     description: Applications
     digest: db2e67516e897bdaac02367a0fb1bd343f8be2c3ab72dca9016f35883951a286
@@ -112,6 +122,18 @@ entries:
     - https://github.com/MortyN/helm-repo/releases/download/applications-0.1.0/applications-0.1.0.tgz
     version: 0.1.0
   grafana:
+  - apiVersion: v2
+    created: "2021-12-09T23:09:44.75167527Z"
+    description: Prometheus network metrics, golang, grafana interface
+    digest: 185262bc9fa27fa9a8db7655f53f3e620f8eb8ba94a3d5fbd66482e025dc2d5c
+    icon: https://helm.sh/img/helm.svg
+    maintainers:
+    - email: morten.neteland@hotmail.com.com
+      name: Morten Neteland
+    name: grafana
+    urls:
+    - https://github.com/MortyN/helm-repo/releases/download/grafana-0.0.3/grafana-0.0.3.tgz
+    version: 0.0.3
   - apiVersion: v2
     created: "2021-12-08T21:23:41.831202623Z"
     description: Prometheus network metrics, golang, grafana interface
