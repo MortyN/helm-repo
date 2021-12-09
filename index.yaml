@@ -859,6 +859,19 @@ entries:
   networkmon:
   - apiVersion: v2
     appVersion: 1.5.0
+    created: "2021-12-09T21:25:48.610168141Z"
+    description: Prometheus network metrics, golang, grafana interface
+    digest: 14044f1b47793536ed66451267f316f1a5907408ae7d5a8890e7c9bdb08968b4
+    icon: https://helm.sh/img/helm.svg
+    maintainers:
+    - email: morten.neteland@hotmail.com.com
+      name: Morten Neteland
+    name: networkmon
+    urls:
+    - https://github.com/MortyN/helm-repo/releases/download/networkmon-0.1.7/networkmon-0.1.7.tgz
+    version: 0.1.7
+  - apiVersion: v2
+    appVersion: 1.5.0
     created: "2021-12-08T22:34:05.153709635Z"
     description: Prometheus network metrics, golang, grafana interface
     digest: 1a1c34998b558630d000089f11c472c2bf53a478ba63da38f9cb9167664a517e
