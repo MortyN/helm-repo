@@ -1,24 +1,11 @@
 replicacount: 1
 imageRepository: mortyn/gomonitor-docker
-namespace: networkmon
+metadata:
+  name: networkmon
+  namespace: networkmon
 imageTag: 24
 imagePullPolicy: Always
 service:
-  type: ClusterIP
-  port: 80
-ingress:
-  enabled: false
-  annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
-  path: /
-  hosts:
-    - networkmon-example.local
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
-nodeSelector: {}
-affinity: {}
-priorityClassName: ""
-tolerations: []
+  type: NodePort
+  port: 2112
+  nodePort: 30001
