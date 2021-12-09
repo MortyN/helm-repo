@@ -9,7 +9,7 @@ spec:
     targetRevision: "0.1.*"
   syncPolicy:
     syncOptions:
-    - CreateNamespace=true
+      - CreateNamespace=true
 
     automated:
       selfHeal: true
