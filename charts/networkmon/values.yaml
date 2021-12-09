@@ -1,5 +1,6 @@
 replicacount: 1
 imageRepository: mortyn/gomonitor-docker
+namespace: networkmon
 imageTag: 24
 imagePullPolicy: Always
 service:
