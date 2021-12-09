@@ -1,7 +1,7 @@
 apiVersion: v2
 description: Prometheus network metrics, golang, grafana interface
 name: networkmon
-version: 0.1.10
+version: 0.1.11
 appVersion: "1.5.0"
 maintainers:
 - name: Morten Neteland
