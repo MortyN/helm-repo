@@ -5,7 +5,7 @@
           "builtIn": 1,
           "datasource": "-- Grafana --",
           "enable": true,
-          "hide": true,
+          "hide": false,
           "iconColor": "rgba(0, 211, 255, 1)",
           "name": "Annotations & Alerts",
           "target": {
@@ -117,7 +117,7 @@
         "type": "timeseries"
       }
     ],
-    "refresh": "",
+    "refresh": "15s",
     "schemaVersion": 33,
     "style": "dark",
     "tags": [],
@@ -129,7 +129,7 @@
       "to": "now"
     },
     "timepicker": {
-      "refresh_intervals": ["5s"]
+      "refresh_intervals": ["15s"]
     },
     "timezone": "",
     "title": "googlepingavg",
