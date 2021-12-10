@@ -452,21 +452,16 @@ plugins: []
 ## Configure grafana datasources
 ## ref: http://docs.grafana.org/administration/provisioning/#datasources
 ##
-datasources: {
-  prometheus.yaml: |-
-    "apiVersion": 1,
-    "datasources": [
-        {
-          "access":"proxy",
-          "editable": true,
-          "name": "prometheus",
-          "orgId": 1,
-          "type": "prometheus",
-          "url": "http://prometheus-server.default.svc",
-          "version": 1
-        }
-    ]
-}
+datasources:
+  datasources.yaml:
+    apiVersion: 1
+    datasources:
+    - name: Prometheus
+      type: prometheus
+      url: http://prometheus-server.default.svc
+      access: proxy
+      isDefault: true
+
 #  datasources.yaml:
 #    apiVersion: 1
 #    datasources:
