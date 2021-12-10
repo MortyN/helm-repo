@@ -1016,7 +1016,7 @@ server:
   ##
   securityContext:
     runAsUser: 0
-    runAsNonRoot: true
+    runAsNonRoot: false
     runAsGroup: 0
     fsGroup: 0
 
