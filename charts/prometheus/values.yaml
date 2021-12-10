@@ -1345,7 +1345,7 @@ serverFiles:
         scrape_interval: 5s
 
         static_configs:
-          - targets: ['192.168.49.2:30001']
+          - targets: ['networkmon-svc.networkmon.svc.cluster.local:2112']
         metrics_path: /metrics
 
 
