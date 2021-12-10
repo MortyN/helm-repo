@@ -456,28 +456,12 @@ datasources: {
   datasources.yaml:
     apiVersion: 1
     datasources:
-      - name: Prometheus
+    - name: Prometheus
         type: prometheus
         url: http://prometheus-server.default.svc
         access: proxy
         isDefault: true
 }
-#  datasources.yaml:
-#    apiVersion: 1
-#    datasources:
-#    - name: Prometheus
-#      type: prometheus
-#      url: http://prometheus-prometheus-server
-#      access: proxy
-#      isDefault: true
-#    - name: CloudWatch
-#      type: cloudwatch
-#      access: proxy
-#      uid: cloudwatch
-#      editable: false
-#      jsonData:
-#        authType: default
-#        defaultRegion: us-east-1  
 
 ## Configure notifiers
 ## ref: http://docs.grafana.org/administration/provisioning/#alert-notification-channels
