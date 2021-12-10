@@ -452,7 +452,16 @@ plugins: []
 ## Configure grafana datasources
 ## ref: http://docs.grafana.org/administration/provisioning/#datasources
 ##
-datasources: {}
+datasources: {
+  prometheus.yaml:
+    apiVersion: 1
+    datasources:
+    - name: Prometheus
+      type: prometheus
+      url: http://prometheus-server.default.svc
+      access: proxy
+      isDefault: true
+}
 #  datasources.yaml:
 #    apiVersion: 1
 #    datasources:
@@ -468,7 +477,7 @@ datasources: {}
 #      editable: false
 #      jsonData:
 #        authType: default
-#        defaultRegion: us-east-1
+#        defaultRegion: us-east-1  
 
 ## Configure notifiers
 ## ref: http://docs.grafana.org/administration/provisioning/#alert-notification-channels
@@ -539,24 +548,7 @@ dashboards: {}
 ##   example-dashboard.json: |
 ##     RAW_JSON
 ##
-dashboardsConfigMaps: {
-  data:
-    prometheus.yaml: |-
-      {
-          "apiVersion": 1,
-          "datasources": [
-              {
-                "access":"proxy",
-                  "editable": true,
-                  "name": "prometheus",
-                  "orgId": 1,
-                  "type": "prometheus",
-                  "url": "http://prometheus-server.default.svc",
-                  "version": 1
-              }
-          ]
-      }
-}
+dashboardsConfigMaps: {}
 #  default: ""
 
 ## Grafana's primary configuration
