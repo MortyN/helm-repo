@@ -219,7 +219,7 @@ alertmanager:
     ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
     ##   GKE, AWS & OpenStack)
     ##
-    # storageClass: "-"
+    storageClass: "local-storage"
 
     ## alertmanager data Persistent Volume Binding Mode
     ## If defined, volumeBindingMode: <volumeBindingMode>
@@ -1268,7 +1268,7 @@ pushgateway:
     ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
     ##   GKE, AWS & OpenStack)
     ##
-    # storageClass: "-"
+    storageClass: "local-storage"
 
     ## pushgateway data Persistent Volume Binding Mode
     ## If defined, volumeBindingMode: <volumeBindingMode>
