@@ -525,7 +525,7 @@ dashboards:
   default:
     googleping:
       file: dashboards/custom-dashboard.json
-      datasource: prometheus
+      datasource: Prometheus
   # default:
   #   some-dashboard:
   #     json: |
