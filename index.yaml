@@ -184,6 +184,23 @@ entries:
   bettergrafana:
   - apiVersion: v2
     appVersion: 8.3.1
+    created: "2021-12-10T00:27:14.765900409Z"
+    description: The leading tool for querying and visualizing time series and metrics.
+    digest: 2dbed875a7b23628f847921b9ea170743931f242bb51547c5061334df2275c88
+    home: https://grafana.net
+    icon: https://raw.githubusercontent.com/grafana/grafana/master/public/img/logo_transparent_400x.png
+    kubeVersion: ^1.8.0-0
+    maintainers:
+    - name: Morten Neteland
+    name: bettergrafana
+    sources:
+    - https://github.com/grafana/grafana
+    type: application
+    urls:
+    - https://github.com/MortyN/helm-repo/releases/download/bettergrafana-0.0.2/bettergrafana-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
+    appVersion: 8.3.1
     created: "2021-12-10T00:12:37.231569925Z"
     description: The leading tool for querying and visualizing time series and metrics.
     digest: a8ad0713692fb2d31167f19c6fb63227c897a0bac3eadacea55a07b0991058cb
@@ -1114,6 +1131,40 @@ entries:
     - https://github.com/MortyN/helm-repo/releases/download/networkmon-0.1.4/networkmon-0.1.4.tgz
     version: 0.1.4
   prometheus:
+  - apiVersion: v2
+    appVersion: 2.26.0
+    created: "2021-12-10T00:27:14.901036731Z"
+    dependencies:
+    - condition: kubeStateMetrics.enabled
+      name: kube-state-metrics
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 3.4.*
+    description: Prometheus is a monitoring system and time series database.
+    digest: c4b8f92ba15e0b519afbf9d04753777a89578b1f679798246870701b0a5437be
+    home: https://prometheus.io/
+    icon: https://raw.githubusercontent.com/prometheus/prometheus.github.io/master/assets/prometheus_logo-cb55bb5c346.png
+    maintainers:
+    - email: gianrubio@gmail.com
+      name: gianrubio
+    - email: zanhsieh@gmail.com
+      name: zanhsieh
+    - email: miroslav.hadzhiev@gmail.com
+      name: Xtigyro
+    - email: monotek23@gmail.com
+      name: monotek
+    - email: naseem@transit.app
+      name: naseemkullah
+    name: prometheus
+    sources:
+    - https://github.com/prometheus/alertmanager
+    - https://github.com/prometheus/prometheus
+    - https://github.com/prometheus/pushgateway
+    - https://github.com/prometheus/node_exporter
+    - https://github.com/kubernetes/kube-state-metrics
+    type: application
+    urls:
+    - https://github.com/MortyN/helm-repo/releases/download/prometheus-14.6.2/prometheus-14.6.2.tgz
+    version: 14.6.2
   - apiVersion: v2
     appVersion: 2.26.0
     created: "2021-12-08T21:23:42.31034356Z"
