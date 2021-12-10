@@ -108,7 +108,7 @@
             },
             "exemplar": true,
             "expr": "googlepingavg",
-            "interval": "",
+            "interval": "15s",
             "legendFormat": "",
             "refId": "A"
           }

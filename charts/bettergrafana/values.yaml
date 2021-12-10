@@ -524,8 +524,8 @@ dashboardProviders:
 dashboards:
   default:
     googleping:
-      file: dashboards/custom-dashboard.json
-      datasource: Prometheus
+      file: dashboards/networkmon.json
+      datasource: prometheus
   # default:
   #   some-dashboard:
   #     json: |
