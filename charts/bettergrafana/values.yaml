@@ -539,7 +539,24 @@ dashboards: {}
 ##   example-dashboard.json: |
 ##     RAW_JSON
 ##
-dashboardsConfigMaps: {}
+dashboardsConfigMaps: {
+  data:
+    prometheus.yaml: |-
+      {
+          "apiVersion": 1,
+          "datasources": [
+              {
+                "access":"proxy",
+                  "editable": true,
+                  "name": "prometheus",
+                  "orgId": 1,
+                  "type": "prometheus",
+                  "url": "http://prometheus-server.default.svc",
+                  "version": 1
+              }
+          ]
+      }
+}
 #  default: ""
 
 ## Grafana's primary configuration
