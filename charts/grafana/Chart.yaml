@@ -1,7 +1,7 @@
 apiVersion: v2
 description: Prometheus network metrics, golang, grafana interface
 name: grafana
-version: 0.0.4
+version: 0.0.5
 maintainers:
 - name: Morten Neteland
   email: morten.neteland@hotmail.com.com
