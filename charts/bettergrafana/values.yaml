@@ -512,6 +512,7 @@ dashboardProviders:
       type: file
       disableDeletion: false
       editable: true
+      updateIntervalSeconds: 5
       options:
         path: /var/lib/grafana/dashboards/default
 
