@@ -454,20 +454,18 @@ plugins: []
 ##
 datasources: {
   prometheus.yaml: |-
-    {
-      "apiVersion": 1,
-      "datasources": [
-          {
-            "access":"proxy",
-            "editable": true,
-            "name": "prometheus",
-            "orgId": 1,
-            "type": "prometheus",
-            "url": "http://prometheus-server.default.svc",
-            "version": 1
-          }
-      ]
-    }
+    "apiVersion": 1,
+    "datasources": [
+        {
+          "access":"proxy",
+          "editable": true,
+          "name": "prometheus",
+          "orgId": 1,
+          "type": "prometheus",
+          "url": "http://prometheus-server.default.svc",
+          "version": 1
+        }
+    ]
 }
 #  datasources.yaml:
 #    apiVersion: 1
