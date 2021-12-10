@@ -311,6 +311,13 @@ controller:
                   password: massivedongerlord
                   scope: GLOBAL
                   description: testbasicauth
+              -usernamePassword:
+                  id: github-creds
+                  username: "${username}"
+                  password: "${password}"
+                  scope: GLOBAL
+                  description: github credentials for pipeline
+
     # Ignored if securityRealm is defined in controller.JCasC.configScripts and
     # ignored if controller.enableXmlConfig=true as controller.securityRealm takes precedence
     securityRealm: |-
@@ -608,7 +615,10 @@ agent:
   # Allowed types are: ConfigMap, EmptyDir, HostPath, Nfs, PVC, Secret
   # Configure the attributes as they appear in the corresponding Java class for that type
   # https://github.com/jenkinsci/kubernetes-plugin/tree/master/src/main/java/org/csanchez/jenkins/plugins/kubernetes/volumes
-  volumes: []
+  volumes:
+  - type: Secret
+    mountPath: /run/secrets/
+    secretName: git-secret
   # - type: ConfigMap
   #   configMapName: myconfigmap
   #   mountPath: /var/myapp/myconfigmap
