@@ -184,6 +184,23 @@ entries:
   bettergrafana:
   - apiVersion: v2
     appVersion: 8.3.1
+    created: "2021-12-10T17:44:29.226536526Z"
+    description: The leading tool for querying and visualizing time series and metrics.
+    digest: 03fc20efa13376f327dcd65462873b75fa0feee22652b44c93be289a7f5bbaf0
+    home: https://grafana.net
+    icon: https://raw.githubusercontent.com/grafana/grafana/master/public/img/logo_transparent_400x.png
+    kubeVersion: ^1.8.0-0
+    maintainers:
+    - name: Morten Neteland
+    name: bettergrafana
+    sources:
+    - https://github.com/grafana/grafana
+    type: application
+    urls:
+    - https://github.com/MortyN/helm-repo/releases/download/bettergrafana-0.0.5/bettergrafana-0.0.5.tgz
+    version: 0.0.5
+  - apiVersion: v2
+    appVersion: 8.3.1
     created: "2021-12-10T17:15:05.46025368Z"
     description: The leading tool for querying and visualizing time series and metrics.
     digest: 43db70b5514f9efc6d51da2590b56a284d502ec968012f1c1e75b53598da0140
