@@ -13,7 +13,7 @@ spec:
   source:
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: "*"
-    chart: grafana
+    chart: bettergrafana
   syncPolicy:
     automated:
       prune: true
