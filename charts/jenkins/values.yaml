@@ -311,7 +311,7 @@ controller:
                   password: massivedongerlord
                   scope: GLOBAL
                   description: testbasicauth
-              -usernamePassword:
+              - usernamePassword:
                   id: github-creds
                   username: "${git-secret-username}"
                   password: "${git-secret-password}"
