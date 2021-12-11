@@ -268,6 +268,11 @@ controller:
      keyName: username
    - name: git-secret
      keyName: password
+   - name: docker-secret
+     keyName: username
+   - name: docker-secret
+     keyName: password
+  
 
   additionalSecrets: []
   #  - name: nameOfSecret
@@ -317,6 +322,12 @@ controller:
                   password: "${git-secret-password}"
                   scope: GLOBAL
                   description: github credentials for pipeline
+              - usernamePassword:
+                  id: docker-creds
+                  username: "${docker-secret-username}"
+                  password: "${docker-secret-password}"
+                  scope: GLOBAL
+                  description: docker credentials for pipeline
 
     # Ignored if securityRealm is defined in controller.JCasC.configScripts and
     # ignored if controller.enableXmlConfig=true as controller.securityRealm takes precedence
