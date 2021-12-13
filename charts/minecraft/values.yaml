@@ -8,8 +8,8 @@ imagePullSecret: ""
 ##
 resources:
   requests:
-    memory: 512Mi
-    cpu: 500m
+    memory: 3072mi
+    cpu: 2000m
 
 # upgrade strategy type (e.g. Recreate or RollingUpdate)
 strategyType: Recreate
@@ -70,7 +70,7 @@ extraVolumes: []
 
 minecraftServer:
   # This must be overridden, since we can't accept this for the user.
-  eula: "TRUE"
+  eula: "FALSE"
   # One of: LATEST, SNAPSHOT, or a specific version (ie: "1.7.9").
   version: "LATEST"
   # This can be one of "VANILLA", "FORGE", "SPIGOT", "BUKKIT", "PAPER", "FTBA", "SPONGEVANILLA", "CURSEFORGE"
@@ -94,7 +94,7 @@ minecraftServer:
   # Set to true if running Feed The Beast and get an error like "unable to launch forgemodloader"
   ftbLegacyJavaFixer: false
   # One of: peaceful, easy, normal, and hard
-  difficulty: easy
+  difficulty: normal
   # A comma-separated list of player names to whitelist.
   whitelist:
   # A comma-separated list of player names who should be admins.
@@ -128,7 +128,7 @@ minecraftServer:
   # Determines if villagers will be spawned.
   spawnNPCs: true
   # Max view distance (in chunks).
-  viewDistance: 10
+  viewDistance: 15
   # Define this if you want a specific map generation seed.
   levelSeed:
   # One of: creative, survival, adventure, spectator
@@ -154,7 +154,7 @@ minecraftServer:
   # Check accounts against Minecraft account service.
   onlineMode: true
   # If you adjust this, you may need to adjust resources.requests above to match.
-  memory: 2048M
+  memory: 3072M
   # General JVM options to be passed to the Minecraft server invocation
   jvmOpts: ""
   # Options like -X that need to proceed general JVM options
@@ -163,7 +163,7 @@ minecraftServer:
   serviceAnnotations: {}
   serviceType: NodePort
   ## Set the port used if the serviceType is NodePort
-  nodePort: 30025
+  nodePort: 32000
   # Set the external port of the service, usefull when using the LoadBalancer service type
   servicePort: 25565
   loadBalancerIP:
@@ -176,7 +176,7 @@ minecraftServer:
     # If you enable this, make SURE to change your password below.
     enabled: false
     port: 25575
-    password: "1234"
+    password: "CHANGEME!"
     existingSecret:
     secretKey: rcon-password
     serviceType: ClusterIP
@@ -188,6 +188,7 @@ minecraftServer:
     # externalTrafficPolicy: Cluster
 
   extraPorts: []
+
     # These options allow you to expose another port from the Minecraft server, plugins such
     # as dynmap (8123) and bluemap (8100) will require this for access to their web interfaces
     #
@@ -204,9 +205,11 @@ minecraftServer:
     #     externalTrafficPolicy: Cluster
     #     port: 8123
     #   ingress:
+    #     ingressClassName: nginx
     #     enabled: false
     #     annotations:
-    #       kubernetes.io/ingress.class: nginx
+    ## Deprecated way for specifying the ingressClass. Kube.version < 1.18
+    ##       kubernetes.io/ingress.class: nginx
     #       kubernetes.io/tls-acme: "true"
     #     hosts:
     #       - name: map.local
@@ -222,8 +225,20 @@ minecraftServer:
     port: 25565
 
 ## Additional minecraft container environment variables
+## Values can be either variable values or `valueFrom` yaml
 ##
-extraEnv: {}
+extraEnv:
+  {}
+  # some_variable: some value
+  # another_variable:
+  #   valueFrom:
+  #     fieldRef:
+  #       fieldPath: status.hostIP
+
+## Additional environment variables to add to the minecraft container from
+## ConfigMaps and Secrets
+##
+envFrom: []
 
 persistence:
   annotations: {}
@@ -234,12 +249,12 @@ persistence:
   ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
   ##   GKE, AWS & OpenStack)
   ##
-  # storageClass: "-"
+  storageClass: "minecraft-pv"
   dataDir:
     # Set this to false if you don't care to persist state between restarts.
-    enabled: false
+    enabled: true
     # existingClaim: nil
-    Size: 1Gi
+    Size: 20Gi
 
 podAnnotations: {}
 

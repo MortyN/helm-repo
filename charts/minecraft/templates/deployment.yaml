@@ -31,10 +31,6 @@ spec:
         {{- end }}
       {{- end }}
     spec:
-      targetRef:
-        apiVersion: "apps/v1"
-        kind: Deployment
-        name: {{template "minecraft.fullname" . }}
       {{- if .Values.imagePullSecret }}
       imagePullSecrets:
         - name: {{ .Values.imagePullSecret }}
@@ -75,6 +71,9 @@ spec:
           failureThreshold: {{ .Values.livenessProbe.failureThreshold }}
           successThreshold: {{ .Values.livenessProbe.successThreshold }}
           timeoutSeconds: {{ .Values.livenessProbe.timeoutSeconds }}
+      {{- with .Values.envFrom }}
+        envFrom:
+          {{- . | toYaml | nindent 10 }}{{ end }}
         env:
         - name: EULA
           value: {{ .Values.minecraftServer.eula | quote }}
@@ -204,10 +203,18 @@ spec:
           value: {{ .Values.minecraftServer.query.port | quote }}
         {{- end }}
 
-        {{- range $key, $value := .Values.extraEnv }}
+      {{- range $key, $value := .Values.extraEnv }}
+      {{-   if kindIs "map" $value }}
+      {{-     if hasKey $value "valueFrom" }}
+        - name: {{ $key }}
+          valueFrom:
+            {{- $value.valueFrom | toYaml | nindent 12 }}
+      {{-     end }}
+      {{-   else }}
         - name: {{ $key }}
           value: {{ $value | quote }}
-        {{- end }}
+      {{-   end }}
+      {{- end }}
 
         ports:
         - name: minecraft
