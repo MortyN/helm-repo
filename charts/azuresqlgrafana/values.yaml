@@ -1,0 +1,15 @@
+spec:
+  metadata:
+    name: {{ .Chart.name }}
+    namespace: grafana-poc
+  destination:
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: https://mortyn.github.io/helm-repo
+    targetRevision: "*"
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      selfHeal: true
+      prune: true
