@@ -194,6 +194,16 @@ entries:
   azuresqlgrafana:
   - apiVersion: v2
     appVersion: "1.0"
+    created: "2022-01-16T00:51:01.501523619Z"
+    description: Applications
+    digest: 14c0721244a8f21e4ecfc93e71159697d9b0adb679600d898ad54f1eb08cd020
+    name: azuresqlgrafana
+    type: application
+    urls:
+    - https://github.com/MortyN/helm-repo/releases/download/azuresqlgrafana-0.0.3/azuresqlgrafana-0.0.3.tgz
+    version: 0.0.3
+  - apiVersion: v2
+    appVersion: "1.0"
     created: "2022-01-16T00:34:59.716838203Z"
     description: Applications
     digest: 504584fdd0f218006c615edda89d247029afb31995dd7435e45117dd3994efe1
