@@ -1,6 +1,6 @@
 spec:
   metadata:
-    name: {{ .Chart.name }}
+    name: azuresqlgrafana
     namespace: grafana-poc
   destination:
     server: https://kubernetes.default.svc
