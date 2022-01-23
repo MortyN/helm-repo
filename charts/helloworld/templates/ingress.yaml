@@ -10,8 +10,8 @@ spec:
   - host: mortyn.homelab.box
     http:
       paths:
-      - path: /
-        pathType: Prefix
+      - pathType: Prefix
+        path: /
         backend:
           service:
             name: {{ .Values.metadata.name }}-svc
