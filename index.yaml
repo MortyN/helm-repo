@@ -567,6 +567,19 @@ entries:
   helloworld:
   - apiVersion: v2
     appVersion: "1.0"
+    created: "2022-01-23T22:20:07.22458704Z"
+    description: helloworld
+    digest: a590fa7afe5c3350310af8ecb950baa7607448eb28d9e377558bb80068021a0b
+    icon: https://helm.sh/img/helm.svg
+    maintainers:
+    - email: morten.neteland@hotmail.com.com
+      name: Morten Neteland
+    name: helloworld
+    urls:
+    - https://github.com/MortyN/helm-repo/releases/download/helloworld-0.1.3/helloworld-0.1.3.tgz
+    version: 0.1.3
+  - apiVersion: v2
+    appVersion: "1.0"
     created: "2022-01-23T22:14:10.101897873Z"
     description: helloworld
     digest: 11955a056c2f59050775a3b0e0362a52a65013bbc5a83b046d2dbd29cb600beb
