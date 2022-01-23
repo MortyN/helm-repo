@@ -15,5 +15,6 @@ spec:
         backend:
           service:
             name: {{ .Values.metadata.name }}-svc
-            port: {{ .Values.service.port }}
+            port: 
+              number: {{ .Values.service.port }}
         
