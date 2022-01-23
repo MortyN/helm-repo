@@ -564,6 +564,20 @@ entries:
     urls:
     - https://github.com/MortyN/helm-repo/releases/download/grafana-0.0.2/grafana-0.0.2.tgz
     version: 0.0.2
+  helloworld:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2022-01-23T12:50:42.593530799Z"
+    description: helloworld
+    digest: c8d6ba8a48122be916b80a1f4b5456e50888a41bae4b080f2e8d8e402d270396
+    icon: https://helm.sh/img/helm.svg
+    maintainers:
+    - email: morten.neteland@hotmail.com.com
+      name: Morten Neteland
+    name: helloworld
+    urls:
+    - https://github.com/MortyN/helm-repo/releases/download/helloworld-0.0.1/helloworld-0.0.1.tgz
+    version: 0.0.1
   jenkins:
   - annotations:
       artifacthub.io/images: |
