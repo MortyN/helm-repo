@@ -6,7 +6,7 @@ metadata:
 spec:
   ingressClassName: "nginx"
   rules:
-  - host: mortyn.homelab.box
+  - host: mortyn.asuscomm.com
     http:
       paths:
       - pathType: Prefix
