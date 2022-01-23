@@ -3,9 +3,10 @@ kind: Ingress
 metadata:
   name: ingress-myserviceb
   annotations:
-    kubernetes.io/ingress.class: nginx
+    kubernetes.io/ingress.class: "nginx"
   namespace: default
 spec:
+  ingressClassName: "nginx"
   rules:
   - host: mortyn.homelab.box
     http:
