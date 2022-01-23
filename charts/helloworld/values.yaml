@@ -1,6 +1,6 @@
 replicacount: 1
 imageRepository: gcr.io/google-samples/hello-app
-imageTag: 1.0
+imageTag: "1.0"
 metadata:
   name: helloworld
   namespace: default
