@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-latency-poc
+  namespace: default
+  labels:
+    app: redis-latency-poc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis-latency-poc
+  template:
+    metadata:
+      labels:
+        app: redis-latency-poc
+    spec:
+      containers:
+      - name: redis-latency-poc
+        image: redhat/ubi8
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: 800m
+            memory: 1024Mi
+          requests:
+            cpu: 250m
+            memory: 256Mi
