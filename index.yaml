@@ -3,6 +3,16 @@ entries:
   applications:
   - apiVersion: v2
     appVersion: "1.0"
+    created: "2022-01-24T12:01:41.711619375Z"
+    description: Applications
+    digest: e97cbe91aa1e1543a43df0c0858eaa7990a46192f27e06b1a888250cef5f9109
+    name: applications
+    type: application
+    urls:
+    - https://github.com/MortyN/helm-repo/releases/download/applications-0.1.21/applications-0.1.21.tgz
+    version: 0.1.21
+  - apiVersion: v2
+    appVersion: "1.0"
     created: "2022-01-10T12:58:44.520292714Z"
     description: Applications
     digest: 4e4a3aca6f09a4e04849e2c7c521e50e327ffb97113ee9f7fd7af23be869d70b
@@ -2112,4 +2122,14 @@ entries:
     urls:
     - https://github.com/MortyN/helm-repo/releases/download/prometheus-14.6.1/prometheus-14.6.1.tgz
     version: 14.6.1
+  redis-latency-poc:
+  - apiVersion: v2
+    appVersion: 8.4-209
+    created: "2022-01-24T12:01:41.916497724Z"
+    description: Chart for redis cache latency poc
+    digest: 2ec4ec5543e378ee614d40cb90de35b4cfea681f636a4060ef4dbd29a4d430d7
+    name: redis-latency-poc
+    urls:
+    - https://github.com/MortyN/helm-repo/releases/download/redis-latency-poc-1.0.2/redis-latency-poc-1.0.2.tgz
+    version: 1.0.2
 generated: "2021-09-22T10:06:59.503937513Z"
