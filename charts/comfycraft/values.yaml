@@ -91,7 +91,7 @@ persistence:
   ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
   ##   GKE, AWS & OpenStack)
   ##
-  storageClass: "minecraft-pv"
+  storageClass: "homelabstorage"
   dataDir:
     # Set this to false if you don't care to persist state between restarts.
     enabled: true
