@@ -82,8 +82,18 @@ readinessProbe:
   successThreshold: 1
   timeoutSeconds: 1
 
-Persistence:
-  Enabled: true
-  MountPath: "/minecraft"
-  VolumeName: "homelabstorage"
-  ExistingClaim: "/minecraft"
+persistence:
+  annotations: {}
+  ## minecraft data Persistent Volume Storage Class
+  ## If defined, storageClassName: <storageClass>
+  ## If set to "-", storageClassName: "", which disables dynamic provisioning
+  ## If undefined (the default) or set to null, no storageClassName spec is
+  ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+  ##   GKE, AWS & OpenStack)
+  ##
+  storageClass: "minecraft-pv"
+  dataDir:
+    # Set this to false if you don't care to persist state between restarts.
+    enabled: true
+    # existingClaim: nil
+    Size: 20Gi

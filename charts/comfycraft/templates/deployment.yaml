@@ -39,16 +39,26 @@ spec:
             memory: "{{ .Values.Resources.memoryLimit }}"
             cpu: "{{ .Values.Resources.cpuLimit }}"
         volumeMounts:
-        - name: "minecraftdata"
-          mountPath: {{ .Values.Persistence.MountPath }}
+        - name: datadir
+          mountPath: /data
+        {{- range .Values.extraVolumes }}
+        {{- toYaml .volumeMounts | nindent 8 }}
+        {{- end }}
       volumes:
       - name: serverconfig-cm
         configMap:
           name: serverconfig-cm
-      - name: "minecraftdata"
-      {{- if .Values.Persistence.Enabled }}
+      - name: datadir
+      {{- if .Values.persistence.dataDir.enabled }}
         persistentVolumeClaim:
-          claimName: {{ .Values.Persistence.VolumeName }}
+        {{- if .Values.persistence.dataDir.existingClaim }}
+          claimName: {{ .Values.persistence.dataDir.existingClaim }}
+        {{- else }}
+          claimName: {{ .Values.deploymentname }}-datadir
+        {{- end }}
       {{- else }}
-          emptyDir: {}
+        emptyDir: {}
+      {{- end }}
+      {{- range .Values.extraVolumes }}
+      {{- toYaml .volumes | nindent 6 }}
       {{- end }}
