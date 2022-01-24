@@ -3,4 +3,5 @@ kind: ConfigMap
 metadata: 
   name: {{ .Values.serverProperties.configmapName }}
 data:
-  server.properties: {{ .Values.serverProperties.properties }}
+  server.properties: |
+  {{ .Values.serverProperties.properties | indent 2 }}
