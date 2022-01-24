@@ -26,9 +26,8 @@ Resources:
   cpuLimit: 2000m
   memoryLimit: 3500Mi
 
-serverProperties:
-  configmapName: minecraft-serverproperties-cm
-  properties: |
+serverConfig:
+  server.properties: |-
     view-distance=10
     max-build-height=256
     server-ip=

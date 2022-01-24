@@ -1,7 +1,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata: 
-  name: {{ .Values.serverProperties.configmapName }}
+  name: serverconfig-cm
 data:
-  server.properties: |
-  {{ .Values.serverProperties.properties | indent 2 }}
+{{- range $name, $config := .Values.serverConfig }}
+  {{ $name }}: |-
+{{ tpl $config $ | indent 4 }}
+  {{- end }}

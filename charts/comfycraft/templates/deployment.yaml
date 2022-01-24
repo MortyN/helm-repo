@@ -42,6 +42,9 @@ spec:
         - name: "minecraftdata"
           mountPath: {{ .Values.Persistence.MountPath }}
       volumes:
+      - name: serverconfig-cm
+        configMap:
+          name: serverconfig-cm
       - name: "minecraftdata"
       {{- if .Values.Persistence.Enabled }}
         persistentVolumeClaim:
@@ -49,7 +52,3 @@ spec:
       {{- else }}
           emptyDir: {}
       {{- end }}
-    volumes:
-    - name: {{ .Values.serverProperties.configmapName }}
-      configMap:
-        name: {{ .Values.serverProperties.configmapName }}
