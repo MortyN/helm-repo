@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.deploymentname }}
+  namespace: default
+  labels:
+    chart: "comfy"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      bb: {{ .Values.deploymentname }}
+  template:
+    metadata:
+      labels:
+        bb: {{ .Values.deploymentname }}
+    spec:
+      containers:
+      - name: {{ .Values.deploymentname }}
+        image: "{{ .Values.imageRepository }}:{{ default "latest" .Values.imageTag }}"
+        readinessProbe:
+          tcpSocket:
+            port: 25565
+          initialDelaySeconds: {{ .Values.readinessProbe.initialDelaySeconds }}
+          periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
+          failureThreshold: {{ .Values.readinessProbe.failureThreshold }}
+          successThreshold: {{ .Values.readinessProbe.successThreshold }}
+          timeoutSeconds: {{ .Values.readinessProbe.timeoutSeconds }}
+        livenessProbe:
+          tcpSocket:
+            port: 25565
+          initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
+          periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
+          failureThreshold: {{ .Values.livenessProbe.failureThreshold }}
+          successThreshold: {{ .Values.livenessProbe.successThreshold }}
+          timeoutSeconds: {{ .Values.livenessProbe.timeoutSeconds }}
+        resources:
+          limits:
+            memory: "{{ .Values.Resources.memoryLimit }}"
+            cpu: "{{ .Values.Resources.cpuLimit }}"
+        volumeMounts:
+        - name: "minecraftdata"
+          mountPath: {{ .Values.Persistence.MountPath }}
+      volumes:
+      - name: "minecraftdata"
+      {{- if .Values.Persistence.Enabled }}
+        persistentVolumeClaim:
+          claimName: {{ .Values.Persistence.VolumeName }}
+      {{- else }}
+          emptyDir: {}
+      {{- end }}
+    volumes:
+    - name: {{ .Values.serverProperties.configmapName }}
+      configMap:
+        name: {{ .Values.serverProperties.configmapName }}

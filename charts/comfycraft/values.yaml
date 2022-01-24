@@ -1,0 +1,90 @@
+replicacount: 1
+imageRepository: mortyn/comfy
+imageTag: 0.0.1
+imagePullPolicy: Always
+deploymentname: comfycraft
+
+service:
+  type: LoadBalancer
+  port: 80
+  targetPort: 25565
+
+ingress:
+  enabled: false
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  path: /
+  hosts:
+    - comfy.homelab.box
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+Resources: 
+  cpuLimit: 2000m
+  memoryLimit: 3500Mi
+
+serverProperties:
+  configmapName: minecraft-serverproperties-cm
+  properties: |
+    view-distance=10
+    max-build-height=256
+    server-ip=
+    level-seed=
+    gamemode=0
+    server-port=25565
+    enable-command-block=false
+    allow-nether=true
+    enable-rcon=false
+    op-permission-level=4
+    enable-query=false
+    prevent-proxy-connections=false
+    generator-settings=
+    resource-pack=
+    player-idle-timeout=0
+    level-name=world
+    motd=Bragegays paradise
+    force-gamemode=false
+    hardcore=false
+    white-list=false
+    pvp=true
+    spawn-npcs=true
+    generate-structures=true
+    spawn-animals=true
+    snooper-enabled=true
+    difficulty=1
+    network-compression-threshold=256
+    level-type=DEFAULT
+    spawn-monsters=true
+    use-native-transport=true
+    max-players=20
+    resource-pack-sha1=
+    online-mode=true
+    allow-flight=false
+    max-world-size=29999984
+  
+nodeSelector: {}
+affinity: {}
+priorityClassName: ""
+tolerations: []
+
+livenessProbe:
+  initialDelaySeconds: 30
+  periodSeconds: 5
+  failureThreshold: 10
+  successThreshold: 1
+  timeoutSeconds: 1
+readinessProbe:
+  initialDelaySeconds: 30
+  periodSeconds: 5
+  failureThreshold: 10
+  successThreshold: 1
+  timeoutSeconds: 1
+
+Persistence:
+  Enabled: true
+  MountPath: "/minecraft"
+  VolumeName: "homelabstorage"
+  ExistingClaim: "/minecraft"

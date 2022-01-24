@@ -1,0 +1,9 @@
+apiVersion: v2
+description: Minecraft above and beyond server
+name: minecraftaandb
+version: 0.0.1
+appVersion: 1.0.0
+maintainers:
+- name: Morten Neteland
+  email: morten.neteland@hotmail.com.com
+icon: https://helm.sh/img/helm.svg
