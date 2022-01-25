@@ -23,8 +23,8 @@ ingress:
   #      - chart-example.local
 
 Resources: 
-  cpuLimit: 2000m
-  memoryLimit: 3500Mi
+  cpuLimit: 2200m
+  memoryLimit: 4000Mi
 
 serverConfig:
   server.properties: |-
