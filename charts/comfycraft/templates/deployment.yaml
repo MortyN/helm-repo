@@ -15,6 +15,24 @@ spec:
       labels:
         bb: {{ .Values.deploymentname }}
     spec:
+      volumes:
+      - name: serverconfig-cm
+        configMap:
+          name: serverconfig-cm
+      - name: datadir
+      {{- if .Values.persistence.dataDir.enabled }}
+        persistentVolumeClaim:
+        {{- if .Values.persistence.dataDir.existingClaim }}
+          claimName: {{ .Values.persistence.dataDir.existingClaim }}
+        {{- else }}
+          claimName: {{ .Values.deploymentname }}-datadir
+        {{- end }}
+      {{- else }}
+        emptyDir: {}
+      {{- end }}
+      {{- range .Values.extraVolumes }}
+      {{- toYaml .volumes | nindent 6 }}
+      {{- end }}
       containers:
       - name: {{ .Values.deploymentname }}
         image: "{{ .Values.imageRepository }}:{{ default "latest" .Values.imageTag }}"
@@ -40,25 +58,7 @@ spec:
             cpu: "{{ .Values.Resources.cpuLimit }}"
         volumeMounts:
         - name: datadir
-          mountPath: /data
+          mountPath: /minecraft
         {{- range .Values.extraVolumes }}
         {{- toYaml .volumeMounts | nindent 8 }}
         {{- end }}
-      volumes:
-      - name: serverconfig-cm
-        configMap:
-          name: serverconfig-cm
-      - name: datadir
-      {{- if .Values.persistence.dataDir.enabled }}
-        persistentVolumeClaim:
-        {{- if .Values.persistence.dataDir.existingClaim }}
-          claimName: {{ .Values.persistence.dataDir.existingClaim }}
-        {{- else }}
-          claimName: {{ .Values.deploymentname }}-datadir
-        {{- end }}
-      {{- else }}
-        emptyDir: {}
-      {{- end }}
-      {{- range .Values.extraVolumes }}
-      {{- toYaml .volumes | nindent 6 }}
-      {{- end }}
