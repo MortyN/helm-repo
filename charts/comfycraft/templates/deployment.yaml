@@ -32,7 +32,6 @@ spec:
       containers:
       - name: {{ .Values.deploymentname }}
         image: "{{ .Values.imageRepository }}:{{ default "latest" .Values.imageTag }}"
-        command: ['sh', '-c', 'echo "The local volume is mounted!" > /mnt/test.txt && sleep 3600']
         readinessProbe:
           tcpSocket:
             port: 25565
