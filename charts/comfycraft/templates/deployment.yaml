@@ -22,11 +22,7 @@ spec:
       - name: datadir
       {{- if .Values.persistence.dataDir.enabled }}
         persistentVolumeClaim:
-        {{- if .Values.persistence.dataDir.existingClaim }}
-          claimName: {{ .Values.persistence.dataDir.existingClaim }}
-        {{- else }}
           claimName: {{ .Values.deploymentname }}-datadir
-        {{- end }}
       {{- else }}
         emptyDir: {}
       {{- end }}
@@ -36,6 +32,7 @@ spec:
       containers:
       - name: {{ .Values.deploymentname }}
         image: "{{ .Values.imageRepository }}:{{ default "latest" .Values.imageTag }}"
+        command: ['sh', '-c', 'echo "The local volume is mounted!" > /mnt/test.txt && sleep 3600']
         readinessProbe:
           tcpSocket:
             port: 25565
