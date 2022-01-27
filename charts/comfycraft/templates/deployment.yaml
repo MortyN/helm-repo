@@ -16,19 +16,9 @@ spec:
         bb: {{ .Values.deploymentname }}
     spec:
       volumes:
-      - name: serverconfig-cm
-        configMap:
-          name: serverconfig-cm
       - name: datadir
-      {{- if .Values.persistence.dataDir.enabled }}
         persistentVolumeClaim:
           claimName: {{ .Values.deploymentname }}-datadir
-      {{- else }}
-        emptyDir: {}
-      {{- end }}
-      {{- range .Values.extraVolumes }}
-      {{- toYaml .volumes | nindent 6 }}
-      {{- end }}
       containers:
       - name: {{ .Values.deploymentname }}
         image: "{{ .Values.imageRepository }}:{{ default "latest" .Values.imageTag }}"
@@ -55,6 +45,3 @@ spec:
         volumeMounts:
         - name: datadir
           mountPath: /data
-        {{- range .Values.extraVolumes }}
-        {{- toYaml .volumeMounts | nindent 8 }}
-        {{- end }}
