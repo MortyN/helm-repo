@@ -528,6 +528,19 @@ entries:
   comfycraft:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2022-01-27T18:41:33.801903559Z"
+    description: Minecraft above and beyond server
+    digest: e2d7257cc0fa33432b1f22e3e9f2344c1ca8e606558ebdb10464de11c3eb62c8
+    icon: https://helm.sh/img/helm.svg
+    maintainers:
+    - email: morten.neteland@hotmail.com.com
+      name: Morten Neteland
+    name: comfycraft
+    urls:
+    - https://github.com/MortyN/helm-repo/releases/download/comfycraft-0.0.22/comfycraft-0.0.22.tgz
+    version: 0.0.22
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2022-01-27T18:17:11.437629695Z"
     description: Minecraft above and beyond server
     digest: 01643b635af74b0a356987a425f298b1d0b19f7610e50a9614ba2f2e86521db0
