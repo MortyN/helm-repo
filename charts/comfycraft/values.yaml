@@ -1,6 +1,6 @@
 replicacount: 1
 imageRepository: mortyn/comfycraft
-imageTag: 0.0.14
+imageTag: 0.0.15
 imagePullPolicy: Always
 deploymentname: comfycraft
 
