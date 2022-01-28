@@ -50,4 +50,3 @@ spec:
           mountPath: /data/world
         - name: serverconfig
           mountPath: /data
-          readOnly: true
