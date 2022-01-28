@@ -19,6 +19,9 @@ spec:
       - name: datadir
         persistentVolumeClaim:
           claimName: {{ .Values.deploymentname }}-datadir
+      - name: serverconfig
+        configMap:
+          name: myconfigmap
       containers:
       - name: {{ .Values.deploymentname }}
         image: "{{ .Values.imageRepository }}:{{ default "latest" .Values.imageTag }}"
@@ -44,4 +47,7 @@ spec:
             cpu: "{{ .Values.Resources.cpuLimit }}"
         volumeMounts:
         - name: datadir
+          mountPath: /data/world
+        - name: serverconfig
           mountPath: /data
+          readOnly: true

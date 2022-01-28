@@ -44,7 +44,7 @@ serverConfig:
     resource-pack=
     player-idle-timeout=0
     level-name=world
-    motd=Bragegays paradise
+    motd=Bragegaysparadise
     force-gamemode=false
     hardcore=false
     white-list=false
