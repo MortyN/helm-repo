@@ -21,7 +21,7 @@ spec:
           claimName: {{ .Values.deploymentname }}-datadir
       - name: serverconfig
         configMap:
-          name: myconfigmap
+          name: serverconfig-cm
       containers:
       - name: {{ .Values.deploymentname }}
         image: "{{ .Values.imageRepository }}:{{ default "latest" .Values.imageTag }}"
