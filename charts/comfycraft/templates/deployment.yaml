@@ -25,6 +25,7 @@ spec:
       containers:
       - name: {{ .Values.deploymentname }}
         image: "{{ .Values.imageRepository }}:{{ default "latest" .Values.imageTag }}"
+        command: [ "/bin/bash","-c", "cp /data/serverconfig/server.properties /data/server.properties && /initjar" ]
         readinessProbe:
           tcpSocket:
             port: 25565
@@ -49,4 +50,5 @@ spec:
         - name: datadir
           mountPath: /data/world
         - name: serverconfig
-          mountPath: /data
+          mountPath: /data/serverconfig
+          
