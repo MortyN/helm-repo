@@ -1,7 +1,7 @@
 apiVersion: v2
 description: ComfyCraft Modpack Minecraft Server
 name: comfycraft
-version: 1.0.0
+version: 1.0.1
 maintainers:
 - name: Morten Neteland
   email: morten.neteland@hotmail.com
