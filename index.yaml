@@ -2293,6 +2293,15 @@ entries:
   piclustermetrics:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2022-06-05T22:49:19.450965381Z"
+    description: A Helm chart for Kubernetes
+    digest: afa5556dfbfcfdcd9a4099455f9781a153ad51a01cf4d2ee3d750dd53ba1d1ac
+    name: piclustermetrics
+    urls:
+    - https://github.com/MortyN/helm-repo/releases/download/piclustermetrics-0.1.8/piclustermetrics-0.1.8.tgz
+    version: 0.1.8
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2022-06-05T22:42:51.0004193Z"
     description: A Helm chart for Kubernetes
     digest: 01363e2e678ac4409fe15b9927c4b473202c91bcce9b78bbcc1ca57989bb6a65
