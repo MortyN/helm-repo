@@ -4,7 +4,7 @@ metadata:
   name: {{ include "piclustermetrics.fullname" . }}-service
   namespace: {{ .Values.namespace }}
   labels:
-    {{- include "piclustermetrics.labels" . | nindent 4 }}
+    app.kubernetes.io/name: proxy
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -13,4 +13,4 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app: piclustermetrics-deployment
+    app.kubernetes.io/name: proxy
