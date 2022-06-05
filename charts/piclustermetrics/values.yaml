@@ -8,7 +8,7 @@ name: piclustermetrics
 namespace: monitoring
 
 image:
-  repository: ghcr.io/mortyn/piclustermetrics:master
+  repository: ghcr.io/mortyn/piclustermetrics
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
@@ -42,6 +42,7 @@ securityContext: {}
 service:
   type: ClusterIP
   port: 80
+  targetport: 8080
 
 ingress:
   enabled: false
