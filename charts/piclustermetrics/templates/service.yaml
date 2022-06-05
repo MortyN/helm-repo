@@ -1,7 +1,8 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "piclustermetrics.fullname" . }}
+  name: {{ include "piclustermetrics.fullname" . }}-service
+  namespace: {{ .Values.namespace }}
   labels:
     {{- include "piclustermetrics.labels" . | nindent 4 }}
 spec:

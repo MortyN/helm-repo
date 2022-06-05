@@ -4,8 +4,11 @@
 
 replicaCount: 1
 
+name: piclustermetrics
+namespace: monitoring
+
 image:
-  repository: nginx
+  repository: ghcr.io/mortyn/piclustermetrics:master
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: piclustermetrics-deployment
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: piclustermetrics
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: piclustermetrics
+  template:
+    metadata:
+      labels:
+        app: piclustermetrics
+    spec:
+      containers:
+      - name: {{ .Values.name }}
+        image: {{ .Values.image.repository }}
+        ports:
+        - containerPort: 8080

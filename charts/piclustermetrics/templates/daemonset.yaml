@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: {{ include "piclustermetrics.fullname" . }}-agent
+  namespace: {{ .Values.namespace }}
+  labels:
+    k8s-app: {{ include "piclustermetrics.fullname" . }}-agent
+spec:
+  selector:
+    matchLabels:
+      name: {{ include "piclustermetrics.fullname" . }}-agent
+  template:
+    metadata:
+      labels:
+        name: {{ include "piclustermetrics.fullname" . }}-agent
+    spec:
+      tolerations:
+      - key: node-role.kubernetes.io/master
+        effect: NoSchedule
+      containers:
+      - name: monitoring-agent
+        image: busybox
+        env:
+          - name: NODE
+            valueFrom:
+              fieldRef:
+                fieldPath: spec.nodeName
+          - name: SERVER
+            value: http://{{ include "piclustermetrics.fullname" . }}-service.monitoring.svc.cluster.local/
+        command: [ "sh", "-c"]
+        args:
+        - while true; do
+            TEMP=$(cat /sys/class/thermal/thermal_zone0/temp);
+            URL="$SERVER?node=$NODE&temp=$TEMP";
+            wget -qO- $URL;
+            sleep 5;
+          done;
+        imagePullPolicy: IfNotPresent
