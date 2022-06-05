@@ -6,6 +6,8 @@ spec:
   containers:
   - image: nginx:latest
     name: nginx-container
+    tty: true
+    stdin: true
     volumeMounts:
     - mountPath: /test-pd
       name: test-volume
