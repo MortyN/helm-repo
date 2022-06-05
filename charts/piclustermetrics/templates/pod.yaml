@@ -4,8 +4,8 @@ metadata:
   name: {{ include "piclustermetrics.fullname" . }}
 spec:
   containers:
-  - image: k8s.gcr.io/test-webserver
-    name: {{ include "piclustermetrics.fullname" . }}-container
+  - image: nginx:latest
+    name: nginx-container
     volumeMounts:
     - mountPath: /test-pd
       name: test-volume
