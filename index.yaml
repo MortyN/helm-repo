@@ -2290,6 +2290,16 @@ entries:
     urls:
     - https://github.com/MortyN/helm-repo/releases/download/networkmon-0.1.4/networkmon-0.1.4.tgz
     version: 0.1.4
+  piclustermetrics:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-06-05T14:14:44.639748191Z"
+    description: A Helm chart for Kubernetes
+    digest: 3c787af428af9a074f6f46b448b1a37c670e09e8700007f0f77d0b668f78c190
+    name: piclustermetrics
+    urls:
+    - https://github.com/MortyN/helm-repo/releases/download/piclustermetrics-0.1.0/piclustermetrics-0.1.0.tgz
+    version: 0.1.0
   prometheus:
   - apiVersion: v2
     appVersion: 2.26.0
