@@ -7,14 +7,14 @@ spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      run: {{ .Values.name }}
+      app: {{ .Values.name }}
   template:
     metadata:
-      labels:
-        run: {{ .Values.name }}
-    spec:
-      containers:
+      labels: # labels to select/identify the deployment
+        app: {{ .Values.name }}
+    spec:     # pod spec                  
+      containers: 
       - name: {{ .Values.name }}
-        image: {{ .Values.image.repository }}
+        image: {{ .Values.image.repository }} # image we pushed
         ports:
         - containerPort: 8080
