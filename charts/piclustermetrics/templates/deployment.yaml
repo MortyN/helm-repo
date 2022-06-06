@@ -4,16 +4,16 @@ metadata:
   name: piclustermetrics-deployment
   namespace: {{ .Values.namespace }}
   labels:
-    app: piclustermetrics
+    app.kubernetes.io/name: proxy
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: piclustermetrics
+      app.kubernetes.io/name: proxy
   template:
     metadata:
       labels:
-        app: piclustermetrics
+        app.kubernetes.io/name: proxy
     spec:
       containers:
       - name: {{ .Values.name }}
